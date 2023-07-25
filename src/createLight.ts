@@ -1,26 +1,23 @@
 import * as THREE from 'three';
-import chroma from 'chroma-js'
+import {HemisphereLight} from "three";
 
 export function createLights(scene: THREE.Scene) {
-    let scale = chroma.scale(['#e00606', "#00ffc1"])
+    const hemisphereLight = new HemisphereLight(0xFFFFFF,0x000000, .9)
+    const shadowLight = new THREE.DirectionalLight(0xffffff, .9)
+    shadowLight.position.set(150, 350, 350);
 
-    let light = new THREE.DirectionalLight(scale(0.8).hex())
-    light.position.set(10, 0, 0)
-    scene.add(light)
-    //scene.add(new THREE.DirectionalLightHelper(light))
+	shadowLight.castShadow = true;
 
-    light = new THREE.DirectionalLight(scale(0.8).hex())
-    light.position.set(0, 10, 0)
-    scene.add(light)
-    //scene.add(new THREE.DirectionalLightHelper(light))
+	shadowLight.shadow.camera.left = -400;
+	shadowLight.shadow.camera.right = 400;
+	shadowLight.shadow.camera.top = 400;
+	shadowLight.shadow.camera.bottom = -400;
+	shadowLight.shadow.camera.near = 1;
+	shadowLight.shadow.camera.far = 1000;
 
-    light = new THREE.DirectionalLight(scale(0.9).hex())
-    light.position.set(0, 0, 10)
-    scene.add(light)
-    //scene.add(new THREE.DirectionalLightHelper(light))
+	shadowLight.shadow.mapSize.width = 2048;
+	shadowLight.shadow.mapSize.height = 2048;
 
-    let light4 = new THREE.PointLight(scale(0.8).hex())
-    light.position.set(0, 25, 100)
-    scene.add(light4)
-    //scene.add(new THREE.PointLightHelper(light4))
+	scene.add(hemisphereLight);
+	scene.add(shadowLight);
 }
