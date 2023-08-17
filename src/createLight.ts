@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import chroma from 'chroma-js'
 
 export function createLights(scene: THREE.Scene) {
-    let scale = chroma.scale(['#e00606', "#00ffc1"])
+    let scale = chroma.scale(["#b4c9d5"])
 
     let light = new THREE.DirectionalLight(scale(0.8).hex())
     light.position.set(10, 0, 0)

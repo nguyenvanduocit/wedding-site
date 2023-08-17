@@ -14,7 +14,7 @@ import {createLights} from "./createLight.ts";
 const scene = new Scene()
 
 // Set the background to the gradient.
-scene.background = new Color(0xd5d5d5)
+scene.background = new Color(0x56af70)
 scene.backgroundBlurriness = 1;
 scene.backgroundIntensity = 1;
 
