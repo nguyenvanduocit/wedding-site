@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {HemisphereLight} from "three";
 
-export function createLights(scene: THREE.Scene) {
+export function createLights() {
     const hemisphereLight = new HemisphereLight(0xFFFFFF,0x000000, .9)
     const shadowLight = new THREE.DirectionalLight(0xffffff, .9)
     shadowLight.position.set(150, 350, 350);
@@ -18,6 +18,5 @@ export function createLights(scene: THREE.Scene) {
 	shadowLight.shadow.mapSize.width = 2048;
 	shadowLight.shadow.mapSize.height = 2048;
 
-	scene.add(hemisphereLight);
-	scene.add(shadowLight);
+return [hemisphereLight, shadowLight]
 }

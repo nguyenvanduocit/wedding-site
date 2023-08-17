@@ -27,7 +27,10 @@ if (testObj !== undefined) {
 
 const {camera, updateCamera} = createCamera(scene)
 const {renderer, updateRenderer} = createRender()
-
+const lights = createLights()
+for (let i = 0; i < lights.length; i++) {
+    scene.add(lights[i])
+}
 
 // setup event
 window.addEventListener('resize', onWindowResize, false)
