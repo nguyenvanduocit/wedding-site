@@ -18,5 +18,5 @@ export function createLights() {
 	shadowLight.shadow.mapSize.width = 2048;
 	shadowLight.shadow.mapSize.height = 2048;
 
-return [hemisphereLight, shadowLight]
+	return [hemisphereLight, shadowLight]
 }
